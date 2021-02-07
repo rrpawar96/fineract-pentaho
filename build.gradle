@@ -13,6 +13,13 @@ repositories {
     // https://jira.pentaho.com/browse/PDI-18983
 }
 
+configurations {
+    driver
+}
+dependencies {
+    driver 'mysql:mysql-connector-java:5.1.16'
+}
+
 dependencyManagement {
     dependencies {
         dependency 'pentaho-reporting-engine:pentaho-reporting-engine-classic-core:3.9.1-GA'
@@ -56,6 +63,8 @@ dependencies {
         'org.springframework.data:spring-data-commons:2.3.4.RELEASE',
         'javax.ws.rs:jsr311-api:1.1.1',
     )
+
+    [group: 'mysql', name: 'mysql-connector-java', version: '5.1.27']
 
     implementation(
         // Pentaho..

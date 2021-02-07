@@ -184,13 +184,14 @@ public class PentahoReportingProcessServiceImpl implements ReportingProcessServi
             rptParamValues.put("tenantUrl", tenantUrl);
             rptParamValues.put("username", tenantConnection.getSchemaUsername());
             rptParamValues.put("password", tenantConnection.getSchemaPassword());
+	    logger.info("rptParamValues:{} ", rptParamValues);
         } catch (final Exception e) {
             logger.error("error.msg.reporting.error:", e);
             throw new PlatformDataIntegrityException("error.msg.reporting.error", e.getMessage());
         }
     }
 
-    private Map<String, String> getReportParams(final MultivaluedMap<String, String> queryParams) {
+    public Map<String, String> getReportParams(final MultivaluedMap<String, String> queryParams) {
         final Map<String, String> reportParams = new HashMap<>();
         final var keys = queryParams.keySet();
         String pKey;
